@@ -1,16 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion rootProject.ext.appVersion.compileSdkVersion
+    buildToolsVersion rootProject.ext.appVersion.buildToolsVersion
 
     defaultConfig {
         applicationId "com.daojia.guide"
-        minSdkVersion 8
-        targetSdkVersion 17
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.appVersion.minSdkVersion
+        targetSdkVersion rootProject.ext.appVersion.targetSdkVersion
+        versionCode rootProject.ext.appVersion.versionCode
+        versionName rootProject.ext.appVersion.versionName
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,6 +22,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile rootProject.ext.dependencies["appcompat-v7"]
     compile project(':guideview')
 }
